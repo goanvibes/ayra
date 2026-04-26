@@ -1,7 +1,8 @@
-// --- 1. Menu Data (Based on Provided Prompt) ---
+// --- 1. Menu Data (With Internet Image Links Added) ---
 const menuData = [
     {
         category: "Signature Specials",
+        imageUrl: "[attachment_0](attachment)", // Biryani Image
         items: [
             { id: "s1", name: "Chicken Dum Biryani", price: 100 },
             { id: "s2", name: "Mutton Dum Biryani", price: 210 },
@@ -11,6 +12,7 @@ const menuData = [
     },
     {
         category: "Mutton & Goan Specialties",
+        imageUrl: "[attachment_1](attachment)", // Meat/Goan Image
         items: [
             { id: "m1", name: "Mutton Khima", price: 230 },
             { id: "m2", name: "Mutton Sukha", price: 230 },
@@ -21,7 +23,8 @@ const menuData = [
         ]
     },
     {
-        category: "Indian Vegetarian (Main Course)",
+        category: "Indian Vegetarian",
+        imageUrl: "[attachment_2](attachment)", // Veg/Paneer Image
         items: [
             { id: "v1", name: "Dal Fry", price: 100 },
             { id: "v2", name: "Dal Tadaka", price: 120 },
@@ -34,6 +37,7 @@ const menuData = [
     },
     {
         category: "Non-Vegetarian (Chicken/Egg)",
+        imageUrl: "[attachment_3](attachment)", // Chicken Image
         items: [
             { id: "n1", name: "Chicken (Masala/Kadai/Kolhapuri)", price: 150 },
             { id: "n2", name: "Egg Masala", price: 100 },
@@ -42,6 +46,7 @@ const menuData = [
     },
     {
         category: "Chinese & Starters",
+        imageUrl: "[attachment_4](attachment)", // Chinese/Starters Image
         items: [
             { id: "c1", name: "Paneer/Mushroom Chilli", price: 130 },
             { id: "c2", name: "Veg/Gobi Manchurian", price: 130 },
@@ -50,6 +55,7 @@ const menuData = [
     },
     {
         category: "Rice & Noodles",
+        imageUrl: "[attachment_5](attachment)", // Rice Image
         items: [
             { id: "r1", name: "Fried Rice (Veg/Paneer/Chicken/Egg)", price: 130 },
             { id: "r2", name: "Schezwan Variants (+10)", price: 140 },
@@ -67,7 +73,7 @@ function showSection(sectionId) {
     window.scrollTo(0,0);
 }
 
-// --- 3. Render Menus ---
+// --- 3. Render Menus (Now with Images) ---
 function renderMenus() {
     const displayContainer = document.getElementById('menu-container');
     const orderContainer = document.getElementById('order-menu-container');
@@ -76,10 +82,18 @@ function renderMenus() {
     let orderHTML = '';
 
     menuData.forEach(cat => {
-        // For Display Menu
-        displayHTML += `<div class="menu-category"><h3>${cat.category}</h3>`;
-        // For Order Menu
-        orderHTML += `<div class="menu-category"><h3>${cat.category}</h3>`;
+        // For Display Menu (INCLUDES IMAGE)
+        displayHTML += `
+        <div class="menu-category">
+            <img src="${cat.imageUrl}" alt="${cat.category}" class="category-img">
+            <div class="category-content">
+                <h3>${cat.category}</h3>`;
+        
+        // For Order Menu (NO IMAGES, to keep ordering compact and fast)
+        orderHTML += `
+        <div class="menu-category">
+            <div class="category-content">
+                <h3>${cat.category}</h3>`;
 
         cat.items.forEach(item => {
             // Display Item
@@ -100,8 +114,9 @@ function renderMenus() {
                     </div>
                 </div>`;
         });
-        displayHTML += `</div>`;
-        orderHTML += `</div>`;
+        
+        displayHTML += `</div></div>`; // Close content and category divs
+        orderHTML += `</div></div>`;
     });
 
     displayContainer.innerHTML = displayHTML;
