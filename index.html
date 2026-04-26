@@ -10,47 +10,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+ 
     <nav class="navbar">
-        <div class="logo">AYRA</div>
+        <div class="logo">🍛 AYRA</div>
         <ul class="nav-links">
-            <li><a href="#" onclick="showSection('home')">Home</a></li>
-            <li><a href="#" onclick="showSection('menu')">Menu</a></li>
-            <li><a href="#" onclick="showSection('order')" class="btn-nav-order">Order Now</a></li>
+            <li><a href="#" onclick="showSection('home')">🏠 Home</a></li>
+            <li><a href="#" onclick="showSection('menu')">📖 Menu</a></li>
+            <li><a href="#" onclick="showSection('order')" class="btn-nav-order">🛒 Order Now</a></li>
         </ul>
     </nav>
 
     <section id="home" class="page-section active">
         <header class="hero">
             <div class="hero-overlay">
-                <h1>Welcome to AYRA</h1>
+                <h1>🎉 Welcome to AYRA</h1>
                 <p>Managed by Giri Restaurant</p>
-                <p class="subtitle">Daily fresh vegetables and meat. Authentic Indian, Chinese & Goan flavors.</p>
+                <p class="subtitle">⭐ Daily fresh vegetables and meat. Authentic Indian, Chinese & Goan flavors.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary" onclick="showSection('menu')">View Menu</button>
-                    <button class="btn-secondary" onclick="showSection('order')">Place an Order</button>
+                    <button class="btn-primary" onclick="showSection('menu')">👀 View Menu</button>
+                    <button class="btn-secondary" onclick="showSection('order')">📦 Place an Order</button>
                 </div>
             </div>
         </header>
 
         <div class="container info-section">
             <div class="info-block">
-                <h2>Our Atmosphere</h2>
-                <p>Enjoy your meal in a clean, modern, and fully air-ventilated environment. With a seating capacity of up to 40 guests, we offer comfortable orange booth-style benches and sleek black modern seating. Catch a glimpse of our culinary magic with our open-view kitchen layout.</p>
+                <h2>🏡 Our Atmosphere</h2>
+                <p>Enjoy your meal in a clean, modern, and fully air-ventilated environment. With a seating capacity of up to 40 guests, we offer comfortable orange booth-style benches and sleek modern furniture. Perfect for families, couples, and corporate gatherings.</p>
                 <div class="media-grid">
-                    <div class="media-placeholder">Interior Photo/Video</div>
-                    <div class="media-placeholder">Exterior Signage</div>
-                    <div class="media-placeholder">Staff & Kitchen</div>
-                    <div class="media-placeholder">Signature Dishes</div>
+                    <div class="media-placeholder" onclick="selectImage(0, 'Interior/Dining Area', 'https://images.unsplash.com/photo-1504674900912-b8a9ad867b13?w=800&h=600&fit=crop')">
+                        <span>🏢 Interior Photo</span>
+                    </div>
+                    <div class="media-placeholder" onclick="selectImage(1, 'Restaurant Signage', 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800&h=600&fit=crop')">
+                        <span>🎪 Exterior Signage</span>
+                    </div>
+                    <div class="media-placeholder" onclick="selectImage(2, 'Our Team', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop')">
+                        <span>👥 Staff & Team</span>
+                    </div>
+                    <div class="media-placeholder" onclick="selectImage(3, 'Signature Dishes', 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=600&fit=crop')">
+                        <span>🍽️ Signature Dishes</span>
+                    </div>
                 </div>
             </div>
 
             <div class="info-block">
-                <h2>Location & Contact</h2>
-                <p><strong>Phone:</strong> +91 XXXXX XXXXX (Replace with actual number)</p>
-                <p><strong>Address:</strong> [Insert Full Address Here]</p>
+                <h2>📍 Location & Contact</h2>
+                <p><strong>☎️ Phone:</strong> +91 XXXXX XXXXX (Replace with actual number)</p>
+                <p><strong>📮 Address:</strong> [Insert Full Address Here]</p>
+                <p><strong>🕐 Hours:</strong> 11:00 AM - 11:00 PM Daily</p>
+                <p><strong>💬 WhatsApp:</strong> Available 24/7 for orders</p>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0!2d-122.0!3d37.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDAwJzAwLjAiTiAxMjLCsDAwJzAwLjAiVw!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0!2d-122.0!3d37.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDAwJzAwLjAiTiAxMjLC" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -58,37 +68,39 @@
 
     <section id="menu" class="page-section">
         <div class="container">
-            <h2 class="section-title">Our Menu</h2>
+            <h2 class="section-title">📖 Our Menu</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.05rem; color: #666;">
+                🌟 Authentic flavors, Premium ingredients, Fresh daily
+            </p>
             <div class="text-center mb-2">
-                <button class="btn-primary" onclick="showSection('order')">Ready to Order?</button>
+                <button class="btn-primary" onclick="showSection('order')">👉 Ready to Order?</button>
             </div>
             <div id="menu-container" class="menu-grid">
-                </div>
+            </div>
         </div>
     </section>
 
     <section id="order" class="page-section">
         <div class="container">
-            <h2 class="section-title">Place Your Order</h2>
-            <p class="text-center mb-2">Select your items below. Your order will be sent to our kitchen via WhatsApp.</p>
-            
+            <h2 class="section-title">🛍️ Place Your Order</h2>
+            <p class="text-center mb-2" style="font-size: 1.05rem; color: #666;">
+                ✨ Select your items below. Your order will be sent to our kitchen via WhatsApp instantly!
+            </p>
             <div class="order-layout">
                 <div class="order-menu" id="order-menu-container">
-                    </div>
-                
+                </div>
                 <div class="cart-sidebar">
-                    <h3>Your Cart</h3>
+                    <h3>🛒 Your Cart</h3>
                     <ul id="cart-items" class="cart-items-list">
-                        </ul>
+                    </ul>
                     <div class="cart-total">
-                        <strong>Total: </strong> ₹<span id="cart-total-price">0</span>
+                        <strong>💰 Total: </strong> ₹<span id="cart-total-price">0</span>
                     </div>
-
                     <div class="customer-details">
-                        <input type="text" id="cust-name" placeholder="Your Name" required>
-                        <input type="text" id="cust-phone" placeholder="Your Phone Number" required>
-                        <textarea id="cust-address" placeholder="Delivery Address / Table Number" rows="3" required></textarea>
-                        <button class="btn-whatsapp" onclick="sendWhatsAppOrder()">Send Order via WhatsApp</button>
+                        <input type="text" id="cust-name" placeholder="👤 Your Name" required>
+                        <input type="text" id="cust-phone" placeholder="📱 Your Phone Number" required>
+                        <textarea id="cust-address" placeholder="📍 Delivery Address / Table Number" rows="3" required></textarea>
+                        <button class="btn-whatsapp" onclick="sendWhatsAppOrder()">📲 Send Order via WhatsApp</button>
                     </div>
                 </div>
             </div>
@@ -96,8 +108,78 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 AYRA Restaurant. Managed by Giri Restaurant. All rights reserved.</p>
+        <p>© 2026 AYRA Restaurant. Managed by Giri Restaurant. All rights reserved. | 🔥 Made with ❤️ for food lovers</p>
     </footer>
+
+    <!-- Image Selection Modal -->
+    <div id="imageModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeImageModal()">&times;</span>
+            <h2 id="modalTitle">Select Image</h2>
+            <div class="modal-image-preview">
+                <img id="modalImage" src="" alt="Selected Image" />
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="copyImageUrl()">📋 Copy Image URL</button>
+                <button class="btn-secondary" onclick="closeImageModal()">❌ Close</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .modal {
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close:hover { color: var(--brand-maroon); }
+        .modal-image-preview {
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .modal-image-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .modal-actions button {
+            flex: 1;
+        }
+        #modalTitle {
+            color: var(--brand-maroon);
+            margin-bottom: 1rem;
+        }
+    </style>
 
     <script src="app.js"></script>
 </body>
