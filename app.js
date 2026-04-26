@@ -67,40 +67,7 @@ function showSection(sectionId) {
     window.scrollTo(0,0);
 }
 
-// --- 3. Image Selection Modal ---
-let selectedImageUrl = '';
-
-function selectImage(index, title, imageUrl) {
-    selectedImageUrl = imageUrl;
-    document.getElementById('modalTitle').innerText = title;
-    document.getElementById('modalImage').src = imageUrl;
-    document.getElementById('imageModal').style.display = 'block';
-}
-
-function closeImageModal() {
-    document.getElementById('imageModal').style.display = 'none';
-}
-
-function copyImageUrl() {
-    if (selectedImageUrl) {
-        navigator.clipboard.writeText(selectedImageUrl).then(() => {
-            alert('✅ Image URL copied to clipboard!');
-        }).catch(err => {
-            console.error('Failed to copy:', err);
-            prompt('Copy this image URL:', selectedImageUrl);
-        });
-    }
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    const modal = document.getElementById('imageModal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// --- 4. Render Menus ---
+// --- 3. Render Menus ---
 function renderMenus() {
     const displayContainer = document.getElementById('menu-container');
     const orderContainer = document.getElementById('order-menu-container');
@@ -127,7 +94,7 @@ function renderMenus() {
                 <div class="menu-item">
                     <span>${item.name} <br><small>₹${item.price}</small></span>
                     <div class="qty-controls">
-                        <button class="qty-btn" onclick="updateCart('${item.id}', '${item.name}', ${item.price}, -1)">−</button>
+                        <button class="qty-btn" onclick="updateCart('${item.id}', '${item.name}', ${item.price}, -1)">-</button>
                         <span id="qty-${item.id}">0</span>
                         <button class="qty-btn" onclick="updateCart('${item.id}', '${item.name}', ${item.price}, 1)">+</button>
                     </div>
@@ -141,7 +108,7 @@ function renderMenus() {
     orderContainer.innerHTML = orderHTML;
 }
 
-// --- 5. Cart & WhatsApp Logic ---
+// --- 4. Cart & WhatsApp Logic ---
 let cart = {};
 
 function updateCart(id, name, price, change) {
@@ -176,7 +143,7 @@ function renderCart() {
     }
 
     if (Object.keys(cart).length === 0) {
-        cartList.innerHTML = '<li style="text-align: center; color: #999;">Your cart is empty</li>';
+        cartList.innerHTML = '<li>Your cart is empty.</li>';
     }
 
     totalEl.innerText = total;
@@ -187,7 +154,7 @@ function sendWhatsAppOrder() {
     const WHATSAPP_NUMBER = "919876543210"; 
 
     if (Object.keys(cart).length === 0) {
-        alert("❌ Please add items to your cart before ordering.");
+        alert("Please add items to your cart before ordering.");
         return;
     }
 
@@ -196,32 +163,24 @@ function sendWhatsAppOrder() {
     const address = document.getElementById('cust-address').value;
 
     if (!name || !phone || !address) {
-        alert("❌ Please fill in your name, phone, and address.");
+        alert("Please fill in your name, phone, and address.");
         return;
     }
 
-    let message = `*🍛 NEW ORDER FOR AYRA 🍛*
-\n`;
-    message += `*📋 Customer Details:*
-`;
-    message += `👤 Name: ${name}\n`;
-    message += `📱 Phone: ${phone}\n`;
-    message += `📍 Address/Table: ${address}\n\n`;
-    message += `*🛍️ Order Items:*
-`;
+    let message = `*NEW ORDER FOR AYRA*\n\n`;
+    message += `*Customer Details:*\nName: ${name}\nPhone: ${phone}\nAddress/Table: ${address}\n\n`;
+    message += `*Order Items:*\n`;
 
     let total = 0;
     for (const id in cart) {
         const item = cart[id];
         const itemTotal = item.qty * item.price;
         total += itemTotal;
-        message += `• ${item.qty}x ${item.name} - ₹${itemTotal}\n`;
+        message += `${item.qty}x ${item.name} - ₹${itemTotal}\n`;
     }
 
-    message += `\n💰 *Total Amount:* ₹${total}\n\n`;
-    message += `⏰ *Estimated Time:* 30-45 minutes\n`;
-    message += `✨ _Thank you for choosing AYRA !_\n`;
-    message += `🔥 _Enjoy your meal !_`;
+    message += `\n*Total Amount:* ₹${total}\n\n`;
+    message += `_Thank you for choosing AYRA!_`;
 
     const encodedMessage = encodeURIComponent(message);
     const waUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
