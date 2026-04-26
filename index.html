@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AYRA Restaurant - Authentic Indian, Chinese, and Goan specialties. Famous for Chicken Dum Biryani and Mutton Kheema. Managed by Giri Restaurant.">
+    <meta name="keywords" content="AYRA, restaurant, Indian food, Goan food, Chinese, Biryani, order online, dine-in">
+    <title>AYRA | Authentic Indian & Goan Cuisine</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">AYRA</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('menu')">Menu</a></li>
+            <li><a href="#" onclick="showSection('order')" class="btn-nav-order">Order Now</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="page-section active">
+        <header class="hero">
+            <div class="hero-overlay">
+                <h1>Welcome to AYRA</h1>
+                <p>Managed by Giri Restaurant</p>
+                <p class="subtitle">Daily fresh vegetables and meat. Authentic Indian, Chinese & Goan flavors.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="showSection('menu')">View Menu</button>
+                    <button class="btn-secondary" onclick="showSection('order')">Place an Order</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="container info-section">
+            <div class="info-block">
+                <h2>Our Atmosphere</h2>
+                <p>Enjoy your meal in a clean, modern, and fully air-ventilated environment. With a seating capacity of up to 40 guests, we offer comfortable orange booth-style benches and sleek black modern seating. Catch a glimpse of our culinary magic with our open-view kitchen layout.</p>
+                <div class="media-grid">
+                    <div class="media-placeholder">Interior Photo/Video</div>
+                    <div class="media-placeholder">Exterior Signage</div>
+                    <div class="media-placeholder">Staff & Kitchen</div>
+                    <div class="media-placeholder">Signature Dishes</div>
+                </div>
+            </div>
+
+            <div class="info-block">
+                <h2>Location & Contact</h2>
+                <p><strong>Phone:</strong> +91 XXXXX XXXXX (Replace with actual number)</p>
+                <p><strong>Address:</strong> [Insert Full Address Here]</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0!2d-122.0!3d37.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDAwJzAwLjAiTiAxMjLCsDAwJzAwLjAiVw!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="text-center mb-2">
+                <button class="btn-primary" onclick="showSection('order')">Ready to Order?</button>
+            </div>
+            <div id="menu-container" class="menu-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="order" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Place Your Order</h2>
+            <p class="text-center mb-2">Select your items below. Your order will be sent to our kitchen via WhatsApp.</p>
+            
+            <div class="order-layout">
+                <div class="order-menu" id="order-menu-container">
+                    </div>
+                
+                <div class="cart-sidebar">
+                    <h3>Your Cart</h3>
+                    <ul id="cart-items" class="cart-items-list">
+                        </ul>
+                    <div class="cart-total">
+                        <strong>Total: </strong> ₹<span id="cart-total-price">0</span>
+                    </div>
+
+                    <div class="customer-details">
+                        <input type="text" id="cust-name" placeholder="Your Name" required>
+                        <input type="text" id="cust-phone" placeholder="Your Phone Number" required>
+                        <textarea id="cust-address" placeholder="Delivery Address / Table Number" rows="3" required></textarea>
+                        <button class="btn-whatsapp" onclick="sendWhatsAppOrder()">Send Order via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AYRA Restaurant. Managed by Giri Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
